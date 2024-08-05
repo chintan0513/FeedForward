@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import EventForm from "./EventForm";
 import axios from "axios";
 import { FiPlus } from 'react-icons/fi';
+import { LuListFilter } from "react-icons/lu";
 
 function EventCard() {
   const [events, setEvents] = useState([]);
@@ -19,7 +20,7 @@ function EventCard() {
     try {
       const response = await axios.get("http://localhost:8000/api/event/list");
       setEvents(response.data);
-      console.log(response.data._id);
+      console.log(response.data);
     } catch (error) {
       console.error("Error fetching events:", error);
     }
@@ -46,17 +47,7 @@ function EventCard() {
             onChange={handleSearch}
             className="w-full p-4 pl-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
-          <svg
-            className="absolute left-3 top-3 h-6 w-6 text-gray-400"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              fillRule="evenodd"
-              d="M8 4a4 4 0 100 8 4 4 0 000-8zm-7 4a7 7 0 1113.657 4.242l4.243 4.242a1 1 0 01-1.415 1.415l-4.242-4.243A7 7 0 011 8z"
-              clipRule="evenodd"
-            />
-          </svg>
+          <LuListFilter className="flex relative -top-10 mx-4 text-lg"/>
         </div>
       </div>
       {filteredEvents.length > 0 ? (
@@ -66,7 +57,7 @@ function EventCard() {
               key={index}
               className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105 hover:shadow-2xl"
             >
-              <Link to={`/event/${event.id}`} className="block">
+              <Link to={`/event/${event._id}`} className="block">
                 <img
                   src={`http://localhost:8000/${event.photo}`}
                   alt="Event"
@@ -81,7 +72,7 @@ function EventCard() {
               <div className="p-4 pt-0">
                 <Link to={`/event/${event._id}`}>
                   <button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded transition duration-300">
-                    Info
+                    Details
                   </button>
                 </Link>
               </div>

@@ -41,7 +41,7 @@ function EventForm({ addEvent, toggleEventForm }) {
       <div className="max-w-lg w-full p-6 bg-white rounded-lg shadow-lg">
         <button
           onClick={toggleEventForm}
-          className="absolute top-4 px-52 top-16 left-1/2 text-gray-600 hover:text-gray-800 focus:outline-none"
+          className="absolute px-52 top-16 left-1/2 text-gray-600 hover:text-gray-800 focus:outline-none"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

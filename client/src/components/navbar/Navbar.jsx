@@ -53,10 +53,16 @@ function Navbar() {
               Post Event
             </Link>
             <Link
-              to="/events"
+              to="/blogs"
               className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
             >
               Blogs
+            </Link>
+            <Link
+              to="/events"
+              className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
+            >
+             events
             </Link>
             <div className="relative">
               {user ? (
