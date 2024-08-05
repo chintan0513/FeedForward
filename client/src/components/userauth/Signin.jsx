@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { userSignin } from '../../apis/userApis';
@@ -23,7 +25,7 @@ function Signin() {
     const checkUserAuth = () => {
         const userItem = JSON.parse(localStorage.getItem('user'));
         if (userItem?.token) {
-            navigate('/');
+            navigate('/feed');
         } else {
             setIsLoading(false);
         }
@@ -67,7 +69,7 @@ function Signin() {
                                     <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-600">Remember me</label>
                                 </div>
                                 <div className="text-sm">
-                                    <a href="/forget-password" className="font-medium text-indigo-600 hover:text-indigo-500">Forgot your password?</a>
+                                    <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">Forgot your password?</a>
                                 </div>
                             </div>
                             <div>

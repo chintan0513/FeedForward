@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import EventForm from "./EventForm";
@@ -103,4 +101,3 @@ function EventCard() {
 }
 
 export default EventCard;
-

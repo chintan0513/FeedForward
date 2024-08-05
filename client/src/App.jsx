@@ -1,43 +1,74 @@
-import React, { useState, useContext } from 'react'
-import {
-   BrowserRouter as Router, Route, Routes
-} from 'react-router-dom'
-import { ToastContainer } from 'react-toastify';
-import Navbar from './components/navbar/Navbar';
-import Home from './components/home/Home';
+import React, { useState, useEffect, useContext } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import axios from "axios";
 
-import Signin from './components/userauth/Signin';
-import Signup from './components/userauth/Signup';
-import FoodDonationForm from './components/foodDonationForm/FoodDonationForm';
-import ForgetPassword from './components/userauth/ForgetPassword';
-import ProductList from './components/product/ProductList';
-import AddProductForm from './components/product/AddProductForm';
-// import FoodItemList from './components/FoodItemList';
-// import Dashboard from './components/Dashboard';
-// import VolunteerTasks from './components/VolunteerTasks';
+import Navbar from "./components/navbar/Navbar";
+import Home from "./components/home/Home";
+import Signin from "./components/userauth/Signin";
+import Signup from "./components/userauth/Signup";
+import About from "./components/about/About";
+import ForgetPassword from "./components/userauth/ForgetPassword";
+import FoodDonationForm from "./components/foodDonationForm/FoodDonationForm";
+import EventCard from "./components/events/EventCard";
+import EventDetails from "./components/events/EventDetails";
+import Blogs from "./components/Blogs/Blogs"
+import News from "./components/about/News"
+// import ProductList from './components/product/ProductList';
+// import AddProductForm from './components/product/AddProductForm';
 
 function App() {
-  
-// const { user, setUser } = useContext(AppContext);
-// const token = user.token;
+  // const [events, setEvents] = useState([]);
+  // const [showEventForm, setShowEventForm] = useState(false);
+
+  // useEffect(() => {
+  //   fetchEvents();
+  // }, []);
+
+  // const fetchEvents = async () => {
+  //   try {
+  //     const response = await axios.get("http://localhost:8000/api/event/list");
+  //     setEvents(response.data);
+  //   } catch (error) {
+  //     console.error("Error fetching events:", error);
+  //   }
+  // };
+
+  // const addEvent = (event) => {
+  //   setEvents([...events, event]);
+  // };
+
+  // const toggleEventForm = () => {
+  //   setShowEventForm(!showEventForm);
+  // };
 
   return (
-    <div className='h-screen w-screen flex flex-col justify-start items-center'>
+    <div className="h-screen w-screen overflow-x-hidden flex flex-col justify-start items-center">
       <Router>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/feed" element={<EventCard />} />
+          <Route path="/event/:eventId" element={<EventDetails />} />
+          <Route path="/news" element={<News />} />
           <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="/donate-food" element={<FoodDonationForm />} />
-          <Route path="/products" element={<ProductList />} />
-          <Route path="/add-product" element={<AddProductForm />} />
+          <Route path="/blogs" element={<Blogs />} />
+          {/* <Route path="/products" element={<ProductList />} /> */}
+          {/* <Route path="/add-product" element={<AddProductForm />} /> */}
         </Routes>
       </Router>
+      {/* <div className="w-full flex flex-wrap justify-center">
+        {events.map((event, index) => (
+          <EventCard key={index} event={event} />
+        ))}
+      </div> */}
+
       <ToastContainer />
     </div>
-  )
+  );
 }
-
-export default App
+export default App;

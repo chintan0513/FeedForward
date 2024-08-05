@@ -19,13 +19,14 @@ function Signup() {
         e.preventDefault();
         setIsSubmitting(true);
         await userSignup({ name, address, email, password }, setUser, setIsLoading);
+        navigate('/signin')
         setIsSubmitting(false);
     };
 
     const checkUserAuth = () => {
         const userItem = JSON.parse(localStorage.getItem('user'));
         if (userItem?.token) {
-            navigate('/feed');
+            navigate('/signin');
         } else {
             setIsLoading(false);
         }
