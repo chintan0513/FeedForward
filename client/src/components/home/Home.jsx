@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../footer/Footer';
 
 function Home() {
     return (
@@ -58,14 +59,14 @@ function Home() {
             </section>
 
             {/* Call to Action Section */}
-            <section className="bg-indigo-600 text-white py-20">
+            {/* <section className="bg-indigo-600 text-white py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 className="text-3xl font-bold mb-4">Join Us Today</h2>
                     <p className="text-xl mb-8">Become a part of the FeedForward community and make a difference.</p>
                     <button className="bg-white text-indigo-600 font-semibold py-2 px-4 rounded shadow-md hover:bg-gray-200">Sign Up</button>
                 </div>
-            </section>
-
+            </section> */}
+            <Footer />
         </div>
     );
 }
