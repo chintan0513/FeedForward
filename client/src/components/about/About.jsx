@@ -32,16 +32,6 @@ function About() {
                             <p className="text-gray-600 text-center">Full Stack Developer</p>
                         </div>
                         <div className="w-full md:w-1/2 lg:w-1/4 p-4">
-                            <img src={darshanImg} alt="Team Member" className="rounded-full mx-auto" />
-                            <h3 className="mt-4 text-xl font-semibold text-center">Dharshan Venkatesan </h3>
-                            <p className="text-gray-600 text-center">Backend & AI Developer</p>
-                        </div>
-                        <div className="w-full md:w-1/2 lg:w-1/4 p-4">
-                            <img src={deepikaImg} alt="Team Member" className="rounded-full mx-auto" />
-                            <h3 className="mt-4 text-xl font-semibold text-center">Deepika Venkatesan</h3>
-                            <p className="text-gray-600 text-center">Software Engineer/back-end developer</p>
-                        </div>
-                        <div className="w-full md:w-1/2 lg:w-1/4 p-4">
                             <img src={divyaImg} alt="Team Member" className="rounded-full mx-auto" />
                             <h3 className="mt-4 text-xl font-semibold text-center">Divya Patel</h3>
                             <p className="text-gray-600 text-center">Front end Developer</p>
@@ -51,6 +41,17 @@ function About() {
                             <h3 className="mt-4 text-xl font-semibold text-center">Ankur Mangroliya</h3>
                             <p className="text-gray-600 text-center">Database Administrator</p>
                         </div>
+                        <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+                            <img src={darshanImg} alt="Team Member" className="rounded-full mx-auto" />
+                            <h3 className="mt-4 text-xl font-semibold text-center">Dharshan Venkatesan </h3>
+                            <p className="text-gray-600 text-center">Backend & AI Developer</p>
+                        </div>
+                        <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+                            <img src={deepikaImg} alt="Team Member" className="rounded-full mx-auto" />
+                            <h3 className="mt-4 text-xl font-semibold text-center">Deepika Venkatesan</h3>
+                            <p className="text-gray-600 text-center">Software Engineer/back-end developer</p>
+                        </div>
+                        
                     </div>
                 </section>
 
