@@ -12,6 +12,7 @@ const url = process.env.ATLAS_URI;
 const userRoutes = require("./routes/user");
 const eventRoutes = require("./routes/event");
 const productRoutes = require("./routes/product");
+const blogRoutes = require("./routes/blog");
 
 // const partnerRoutes = require('./routes/partner')
 // const postRoutes = require('./routes/post')
@@ -26,7 +27,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 mongoose
-  .connect(url)
+  .connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+
   .then(() => {
     console.log("MongoDB connected!");
   })
@@ -44,6 +46,7 @@ app.get("/", (_, res) => {
 app.use("/api/user", userRoutes);
 app.use("/api/event", eventRoutes);
 app.use("/api/product", productRoutes);
+app.use("/api/blogs", blogRoutes);
 
 // app.use('/api/partner', partnerRoutes)
 // app.use('/api/post', postRoutes)
