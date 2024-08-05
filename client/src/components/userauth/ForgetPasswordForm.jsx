@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useParams, useNavigate } from 'react-router-dom';
 
-function ForgetPasswordForm({ match }) {
+function ForgetPasswordForm() {
+  const { token } = useParams(); // Extract token from URL params
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/api/user/forget-password', { token: match.params.token, password });
+      const response = await axios.post(`http://localhost:8000/api/user/reset-password/${token}`, { password });
       setMessage(response.data.message);
+      setTimeout(() => {
+        navigate('/signin'); // Redirect to login page after a successful reset
+      }, 2000); // Delay for showing the success message
     } catch (error) {
-      setMessage(error.response.data.message);
+      setMessage(error.response?.data?.message || "An error occurred.");
     }
   };
 
@@ -24,10 +30,21 @@ function ForgetPasswordForm({ match }) {
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="rounded-md shadow-sm">
             <label htmlFor="password" className="block text-sm font-medium text-gray-700">New Password</label>
-            <input id="password" type="password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter new password" />
+            <input
+              id="password"
+              type="password"
+              required
+              className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter new password"
+            />
           </div>
           <div>
-            <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <button
+              type="submit"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
               Reset Password
             </button>
           </div>

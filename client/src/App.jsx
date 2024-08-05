@@ -14,6 +14,9 @@ import EventCard from "./components/events/EventCard";
 import EventDetails from "./components/events/EventDetails";
 import Blogs from "./components/Blogs/Blogs"
 import News from "./components/about/News"
+import Profile from "./components/userauth/Profile";
+import ForgetPasswordForm from './components/userauth/ForgetPasswordForm';
+
 // import ProductList from './components/product/ProductList';
 // import AddProductForm from './components/product/AddProductForm';
 
@@ -55,8 +58,10 @@ function App() {
           <Route path="/event/:eventId" element={<EventDetails />} />
           <Route path="/news" element={<News />} />
           <Route path="/forget-password" element={<ForgetPassword />} />
+          <Route path="/reset-password/:token" element={<ForgetPasswordForm />} />
           <Route path="/donate-food" element={<FoodDonationForm />} />
           <Route path="/blogs" element={<Blogs />} />
+          <Route path="/profile" element={<Profile />} />
           {/* <Route path="/products" element={<ProductList />} /> */}
           {/* <Route path="/add-product" element={<AddProductForm />} /> */}
         </Routes>
