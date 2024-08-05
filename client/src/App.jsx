@@ -14,33 +14,11 @@ import EventCard from "./components/events/EventCard";
 import EventDetails from "./components/events/EventDetails";
 import Blogs from "./components/Blogs/Blogs"
 import News from "./components/about/News"
-// import ProductList from './components/product/ProductList';
+import ProductList from './components/product/ProductList';
 // import AddProductForm from './components/product/AddProductForm';
 
 function App() {
-  // const [events, setEvents] = useState([]);
-  // const [showEventForm, setShowEventForm] = useState(false);
 
-  // useEffect(() => {
-  //   fetchEvents();
-  // }, []);
-
-  // const fetchEvents = async () => {
-  //   try {
-  //     const response = await axios.get("http://localhost:8000/api/event/list");
-  //     setEvents(response.data);
-  //   } catch (error) {
-  //     console.error("Error fetching events:", error);
-  //   }
-  // };
-
-  // const addEvent = (event) => {
-  //   setEvents([...events, event]);
-  // };
-
-  // const toggleEventForm = () => {
-  //   setShowEventForm(!showEventForm);
-  // };
 
   return (
     <div className="h-screen w-screen overflow-x-hidden flex flex-col justify-start items-center">
