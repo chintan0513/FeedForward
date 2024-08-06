@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const volunteerRoutes = require('./routes/volunteerRoutes'); 
 
 const app = express();
 const path = require("path");
@@ -24,6 +25,8 @@ app.use(cors());
 app.use(express.json()); // Body parser for JSON requests
 app.use(express.urlencoded({ extended: false }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use('/api/volunteers', volunteerRoutes); // Use the routes for '/api/volunteers'
+app.use('/api/event/list', eventRoutes);
 
 mongoose
   .connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
