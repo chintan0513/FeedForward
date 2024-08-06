@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import axios from "axios";
 
 import Navbar from "./components/navbar/Navbar";
 import Home from "./components/home/Home";
@@ -16,9 +15,8 @@ import Blogs from "./components/Blogs/Blogs"
 import News from "./components/about/News"
 import Profile from "./components/userauth/Profile";
 import ForgetPasswordForm from './components/userauth/ForgetPasswordForm';
-
-// import ProductList from './components/product/ProductList';
-// import AddProductForm from './components/product/AddProductForm';
+import ProductList from './components/product/ProductList';
+import AddProductForm from './components/product/AddProductForm';
 
 function App() {
   // const [events, setEvents] = useState([]);
@@ -62,8 +60,8 @@ function App() {
           <Route path="/donate-food" element={<FoodDonationForm />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/profile" element={<Profile />} />
-          {/* <Route path="/products" element={<ProductList />} /> */}
-          {/* <Route path="/add-product" element={<AddProductForm />} /> */}
+          <Route path="/products" element={<ProductList />} />
+          <Route path="/add-product" element={<AddProductForm />} />
         </Routes>
       </Router>
       {/* <div className="w-full flex flex-wrap justify-center">
