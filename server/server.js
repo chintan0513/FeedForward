@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
+const volunteerRoutes = require('./routes/volunteerRoutes'); 
 
 const app = express();
 const path = require("path");
@@ -22,6 +23,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use('/api/volunteers', volunteerRoutes); // Use the routes for '/api/volunteers'
+app.use('/api/event/list', eventRoutes);
 
 mongoose
   .connect(url)
