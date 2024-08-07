@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const volunteerRoutes = require('./routes/volunteerRoutes'); 
 const bodyParser = require("body-parser");
 
 const app = express();
@@ -13,17 +14,25 @@ const userRoutes = require("./routes/user");
 const eventRoutes = require("./routes/event");
 const productRoutes = require("./routes/product");
 const blogRoutes = require("./routes/blog");
+
+// const partnerRoutes = require('./routes/partner')
+// const postRoutes = require('./routes/post')
+// const itemRoutes = require('./routes/item')
+// const orderRoutes = require('./routes/order')
+// const notificationRoutes = require('./routes/notification')
+// const predictRoutes = require('./routes/predict')
 const donationRoutes = require("./routes/donations");
 
 app.use(cors());
 app.use(express.json()); // Body parser for JSON requests
 app.use(express.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use('/api/volunteers', volunteerRoutes); // Use the routes for '/api/volunteers'
+app.use('/api/event/list', eventRoutes);
 
 mongoose
-  .connect(url)
+  .connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+
   .then(() => {
     console.log("MongoDB connected!");
   })

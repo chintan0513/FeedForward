@@ -79,6 +79,44 @@ router.post('/orders/:orderId/place', async (req, res) => {
   }
 });
 
-module.exports = router;
+// Delete an order
+router.delete('/orders/:orderId', async (req, res) => {
+  try {
+    console.log("dd")
+    await Order.findByIdAndDelete(req.params.orderId);
+    res.status(200).json({ message: 'Order deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting order', error });
+  }
+});
+
+// Update an order
+router.put('/orders/:orderId', async (req, res) => {
+  const { name, quantity, description, expiryDate } = req.body;
+  try {
+    const updatedOrder = await Order.findByIdAndUpdate(req.params.orderId, { name, quantity, description, expiryDate }, { new: true });
+    res.status(200).json(updatedOrder);
+  } catch (error) {
+    res.status(500).json({ message: 'Error updating order', error });
+  }
+});
+
+// Get donations by a specific user
+router.get('/donations/byUser/:userId', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    console.log("user", user)
+    if (!user) {
+      return res.status(404).json({ message: 'User does not exist!' });
+    }
+
+    const donations = await Order.find({ createdBy: user }).populate('donations');
+    console.log("donations", donations);
+    res.json(donations);
+  } catch (error) {
+    console.error('Error fetching donations:', error);
+    res.status(500).json({ message: "Server error while fetching donations", error: error.toString() });
+  }
+});
 
 module.exports = router;

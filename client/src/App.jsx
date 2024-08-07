@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import VolunteerRegistration from "./components/volunteer/VolunteerRegistration";
+
 import { ToastContainer } from "react-toastify";
 
 import Navbar from "./components/navbar/Navbar";
@@ -21,6 +23,7 @@ import FoodItem from "./components/foodDonationForm/FoodItem";
 import AvailableDonations from "./components/foodDonationForm/AvailableDonation";
 import BlogDetail from "./components/Blogs/BlogDetail";
 import MapPage from "./components/Map/MapPage";
+import DonationOrder from "./components/foodDonationForm/DonationOrder";
 
 function App() {
   return (
@@ -47,16 +50,16 @@ function App() {
           <Route path="/products" element={<ProductList />} />
           <Route path="/add-product" element={<AddProductForm />} />
           {/* <Route path="/donate" element={<FoodItem />} /> */}
+          <Route
+            path="/volunteer-registration"
+            element={<VolunteerRegistration />}
+          />
           <Route path="/donate" element={<FoodDonationForm />} />
           <Route path="/available-donations" element={<AvailableDonations />} />
           <Route path="/map" element={<MapPage />} />
+          <Route path="/donation-order" element={<DonationOrder />} />
         </Routes>
       </Router>
-      {/* <div className="w-full flex flex-wrap justify-center">
-        {events.map((event, index) => (
-          <EventCard key={index} event={event} />
-        ))}
-      </div> */}
 
       <ToastContainer />
     </div>
