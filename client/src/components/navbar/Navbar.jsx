@@ -5,6 +5,7 @@ import AppContext from "../../context/AppContext";
 function Navbar() {
   const { user, setUser } = useContext(AppContext);
   const [openDropdown, setOpenDropdown] = useState(false);
+  const [openDonationsDropdown, setOpenDonationsDropdown] = useState(false);
   const navigate = useNavigate();
 
   return (
@@ -34,43 +35,61 @@ function Navbar() {
                 </Link>
               </>
             )}
-            <Link
-              to="/donate"
-              className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Donate
-            </Link>
-            <Link
-              to="/available-donations"
-              className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Available Donations
-            </Link>
-            <Link
-              to="/about"
-              className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
-            >
-              What We Do
-            </Link>
-            
-            {/* <Link
-              to="/news"
-              className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
-            >
-              News & Stories
-            </Link> */}
+            <div className="relative">
+              <div
+                className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium cursor-pointer"
+                onClick={() => setOpenDonationsDropdown(!openDonationsDropdown)}
+              >
+                Donations
+              </div>
+
+              {openDonationsDropdown && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 border border-gray-200">
+                  <Link
+                    to="/donate"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    onClick={() => setOpenDonationsDropdown(false)}
+                  >
+                    Donate
+                  </Link>
+                  <Link
+                    to="/available-donations"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    onClick={() => setOpenDonationsDropdown(false)}
+                  >
+                    Available Donations
+                  </Link>
+                </div>
+              )}
+            </div>
+
             <Link
               to="/feed"
               className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
             >
               Post Event
             </Link>
-            {/* <Link
+
+            <Link
+              to="/about"
+              className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
+            >
+              What We Do
+            </Link>
+
+            <Link
+              to="/news"
+              className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
+            >
+              News & Stories
+            </Link>
+
+            <Link
               to="/blogs"
               className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
             >
               Blogs
-            </Link> */}
+            </Link>
             <div className="relative">
               {user ? (
                 <>

@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 
 const app = express();
 const path = require("path");
@@ -13,8 +13,7 @@ const userRoutes = require("./routes/user");
 const eventRoutes = require("./routes/event");
 const productRoutes = require("./routes/product");
 const blogRoutes = require("./routes/blog");
-const donationRoutes = require("./routes/donations")
-
+const donationRoutes = require("./routes/donations");
 
 app.use(cors());
 app.use(express.json()); // Body parser for JSON requests
@@ -43,8 +42,7 @@ app.use("/api/user", userRoutes);
 app.use("/api/event", eventRoutes);
 app.use("/api/product", productRoutes);
 app.use("/api/blogs", blogRoutes);
-app.use("/api/donate",donationRoutes)
-
+app.use("/api/donate", donationRoutes);
 
 app.use((req, res, next) => {
   res.status(404).json({ message: "Route not found" });
