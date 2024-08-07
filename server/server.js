@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const volunteerRoutes = require('./routes/volunteerRoutes'); 
+const bodyParser = require("body-parser");
 
 const app = express();
 const path = require("path");
@@ -20,6 +21,7 @@ const blogRoutes = require("./routes/blog");
 // const orderRoutes = require('./routes/order')
 // const notificationRoutes = require('./routes/notification')
 // const predictRoutes = require('./routes/predict')
+const donationRoutes = require("./routes/donations");
 
 app.use(cors());
 app.use(express.json()); // Body parser for JSON requests
@@ -63,6 +65,7 @@ app.use("/api/blogs", blogRoutes);
 // app.use('/api/order', orderRoutes)
 // app.use('/api/notifications', notificationRoutes)
 // app.use('/api/predict', predictRoutes)
+app.use("/api/donate", donationRoutes);
 
 app.use((req, res, next) => {
   res.status(404).json({ message: "Route not found" });

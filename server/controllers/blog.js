@@ -9,6 +9,24 @@ exports.getAllBlogs = async (req, res) => {
   }
 };
 
+exports.createBlog = async (req, res) => {
+  try {
+    const { title, content, author, tags } = req.body;
+    const image = req.file ? req.file.path : null; // Save the image path
+    const newBlog = new Blog({
+      title,
+      content,
+      author,
+      tags: tags.split(","),
+      image,
+    });
+    await newBlog.save();
+    res.status(201).json(newBlog);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 exports.getBlogById = async (req, res) => {
   try {
     const blog = await Blog.findById(req.params.id);
@@ -21,24 +39,14 @@ exports.getBlogById = async (req, res) => {
   }
 };
 
-exports.createBlog = async (req, res) => {
-  try {
-    const { title, content, author } = req.body;
-    const newBlog = new Blog({ title, content, author });
-    await newBlog.save();
-    res.status(201).json(newBlog);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
 exports.updateBlog = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, content } = req.body;
+    const { title, content, author, tags } = req.body;
+    const image = req.file ? req.file.path : null; // Save the new image path if uploaded
     const updatedBlog = await Blog.findByIdAndUpdate(
       id,
-      { title, content },
+      { title, content, author, tags: tags.split(","), image },
       { new: true }
     );
     if (!updatedBlog) {
