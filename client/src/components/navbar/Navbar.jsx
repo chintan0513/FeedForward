@@ -35,29 +35,42 @@ function Navbar() {
               </>
             )}
             <Link
+              to="/donate"
+              className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Donate
+            </Link>
+            <Link
+              to="/available-donations"
+              className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Available Donations
+            </Link>
+            <Link
               to="/about"
               className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
             >
               What We Do
             </Link>
-            <Link
+            
+            {/* <Link
               to="/news"
               className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
             >
               News & Stories
-            </Link>
+            </Link> */}
             <Link
               to="/feed"
               className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
             >
               Post Event
             </Link>
-            <Link
+            {/* <Link
               to="/blogs"
               className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
             >
               Blogs
-            </Link>
+            </Link> */}
             <div className="relative">
               {user ? (
                 <>
