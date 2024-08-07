@@ -51,20 +51,6 @@ app.use("/api/user", userRoutes);
 app.use("/api/event", eventRoutes);
 app.use("/api/product", productRoutes);
 app.use("/api/blogs", blogRoutes);
-
-// app.get('/reset/:token', (req, res) => {
-//   const token = req.params.token;
-//   // Add your logic to handle the token
-//   // For example, check if the token is valid and render a reset form
-//   res.send(`Reset token received: ${token}`);
-// });
-
-// app.use('/api/partner', partnerRoutes)
-// app.use('/api/post', postRoutes)
-// app.use('/api/item', itemRoutes)
-// app.use('/api/order', orderRoutes)
-// app.use('/api/notifications', notificationRoutes)
-// app.use('/api/predict', predictRoutes)
 app.use("/api/donate", donationRoutes);
 
 app.use((req, res, next) => {

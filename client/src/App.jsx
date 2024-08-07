@@ -22,6 +22,7 @@ import AddProductForm from "./components/product/AddProductForm";
 import FoodItem from "./components/foodDonationForm/FoodItem";
 import AvailableDonations from "./components/foodDonationForm/AvailableDonation";
 import BlogDetail from "./components/Blogs/BlogDetail";
+import DonationOrder from "./components/foodDonationForm/DonationOrder";
 
 
 function App() {
@@ -50,6 +51,8 @@ function App() {
           <Route path="/volunteer-registration" element={<VolunteerRegistration />} />
           <Route path="/donate" element={<FoodDonationForm />} />
           <Route path="/available-donations" element={<AvailableDonations />} />
+          <Route path="/donation-order" element={<DonationOrder/>} />
+
         </Routes>
       </Router>
       {/* <div className="w-full flex flex-wrap justify-center">
