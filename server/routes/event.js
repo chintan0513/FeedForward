@@ -135,4 +135,22 @@ router.post("/sendNotification", async (req, res) => {
   }
 });
 
+router.get("/registrations", async (req, res) => {
+  const { userEmail } = req.query; // Get the user's email from the query
+
+  try {
+    // Fetch registrations for the user and filter for past events
+    const currentDate = new Date();
+    const registrations = await EventRegistration.find({
+      userEmail,
+      eventDate: { $lt: currentDate }, // Filter for past events
+    }).populate("eventId"); // Populate eventId to get event details
+
+    res.status(200).json(registrations);
+  } catch (error) {
+    console.error("Error fetching event registrations:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 module.exports = router;

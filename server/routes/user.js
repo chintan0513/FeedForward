@@ -4,7 +4,7 @@ const userController = require("../controllers/user");
 
 const checkUserExists = require("../middlewares/userAuth");
 
-router.get("/", checkUserExists, userController.getUsers);
+router.get("/", checkUserExists, userController.getUser);
 router.put("/:userId", checkUserExists, userController.updateUser);
 router.post("/signup", userController.createUser);
 router.post("/signin", userController.loginUser);

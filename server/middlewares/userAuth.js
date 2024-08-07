@@ -14,6 +14,7 @@ const checkUserExists = async (req, res, next) => {
       return res.status(404).json({ message: "Access Denied!" });
     }
 
+    req.user = user; // Attach the user object to the request object
     next();
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
