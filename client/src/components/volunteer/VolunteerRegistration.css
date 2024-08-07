@@ -124,3 +124,127 @@ html, body {
 .rounded-md {
     border-radius: 0.375rem;
 }
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.form-heading {
+    text-align: center; /* Centers the text */
+    color: #ffffff; /* Sets text color to white */
+}
+
+.background-wrapper {
+    position: relative;
+    width: 80vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background: url('../../assets/background-image.jpg') no-repeat center center;
+    background-size: 50%; /* Ensures the image covers the entire wrapper */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.9); /* Light background with transparency */
+    max-width: 400px; /* Adjust to reduce form width */
+    width: 100%; /* Full width up to max-width */
+    margin: 0 auto; /* Centers the form horizontally */
+    padding: 2rem; /* Adjust as needed */
+    border-radius: 0.375rem; /* Adjust as needed */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adjust as needed */
+    height: 100%;
+}
+
+.message {
+    text-align: center;
+    color: orange;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.input-field {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 0.25rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    background-color: #f9fafb;
+    color: #4b5563;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+    .input-field:focus {
+        border-color: #3b82f6;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+    }
+
+.submit-button {
+    background-color: #3b82f6;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+    width: 100%;
+}
+
+    .submit-button:hover {
+        background-color: #2563eb;
+    }
+
+    .submit-button:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    }
+
+.text-green-500 {
+    color: #10b981;
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.block {
+    display: block;
+}
+
+.text-gray-700 {
+    color: #4a5568;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.border {
+    border-width: 1px;
+}
+
+.border-gray-300 {
+    border-color: #e2e8f0;
+}
+
+.p-2 {
+    padding: 0.5rem;
+}
+
+.rounded-md {
+    border-radius: 0.375rem;
+}

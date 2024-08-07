@@ -46,7 +46,7 @@ const VolunteerRegistration = () => {
         try {
             const response = await axios.post('http://localhost:8000/api/volunteers', formData);
             if (response.status === 201) {
-                setMessage('Thanks for volunteering, form submitted.');
+                setMessage('Thanks for volunteering, form submitted!!');
                 setFormData({
                     name: '',
                     skills: '',
@@ -62,43 +62,45 @@ const VolunteerRegistration = () => {
     };
 
     return (
-        <div className="background-container">
-            <form onSubmit={handleSubmit} className="form-container">
-                <h2 className="form-heading text-2xl mb-4">Volunteer Registration</h2>
-                <div className="mb-4">
-                    <label className="block text-black-700">Name</label>
-                    <input type="text" name="name" value={formData.name} onChange={handleChange} className="input-field" required />
-                </div>
-                <div className="mb-4">
-                    <label className="block text-black-700">Skills</label>
-                    <input type="text" name="skills" value={formData.skills} onChange={handleChange} className="input-field" required />
-                </div>
-                <div className="mb-4">
-                    <label className="block text-black-700">Volunteer Type</label>
-                    <select name="volunteerType" value={formData.volunteerType} onChange={handleChange} className="input-field" required>
-                        <option value="">Select Volunteer Type</option>
-                        <option value="Event Volunteer">Event Volunteer</option>
-                        <option value="Delivery Volunteer">Delivery Volunteer</option>
-                    </select>
-                </div>
-                {showEventDropdown && (
+        <div className="background-wrapper">
+            <div className="form-wrapper">
+                <form onSubmit={handleSubmit} className="form-container">
+                    <h2 className="form-heading text-2xl mb-4">Volunteer Registration</h2>
                     <div className="mb-4">
-                        <label className="block text-gray-700">Event</label>
-                        <select name="event" value={formData.event} onChange={handleChange} className="input-field" required>
-                            <option value="">Select Event</option>
-                            {events.map((event, index) => (
-                                <option key={index} value={event}>{event}</option>
-                            ))}
+                        <label className="block text-black-700">Name</label>
+                        <input type="text" name="name" value={formData.name} onChange={handleChange} className="input-field" required />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-black-700">Skills</label>
+                        <input type="text" name="skills" value={formData.skills} onChange={handleChange} className="input-field" required />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-black-700">Volunteer Type</label>
+                        <select name="volunteerType" value={formData.volunteerType} onChange={handleChange} className="input-field" required>
+                            <option value="">Select Volunteer Type</option>
+                            <option value="Event Volunteer">Event Volunteer</option>
+                            <option value="Delivery Volunteer">Delivery Volunteer</option>
                         </select>
                     </div>
-                )}
-                <div className="mb-4">
-                    <label className="block text-black-700">Availability</label>
-                    <input type="datetime-local" name="availability" value={formData.availability} onChange={handleChange} className="input-field" required />
-                </div>
-                <button type="submit" className="submit-button">Submit</button>
-                {message && <p className="message">{message}</p>}
-            </form>
+                    {showEventDropdown && (
+                        <div className="mb-4">
+                            <label className="block text-gray-700">Event</label>
+                            <select name="event" value={formData.event} onChange={handleChange} className="input-field" required>
+                                <option value="">Select Event</option>
+                                {events.map((event, index) => (
+                                    <option key={index} value={event}>{event}</option>
+                                ))}
+                            </select>
+                        </div>
+                    )}
+                    <div className="mb-4">
+                        <label className="block text-black-700">Availability</label>
+                        <input type="datetime-local" name="availability" value={formData.availability} onChange={handleChange} className="input-field" required />
+                    </div>
+                    <button type="submit" className="submit-button">Submit</button>
+                    {message && <p className="message">{message}</p>}
+                </form>
+            </div>
         </div>
     );
 };
