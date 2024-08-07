@@ -17,31 +17,12 @@ import Profile from "./components/userauth/Profile";
 import ForgetPasswordForm from './components/userauth/ForgetPasswordForm';
 import ProductList from './components/product/ProductList';
 import AddProductForm from './components/product/AddProductForm';
+import FoodItem from "./components/foodDonationForm/FoodItem";
+import AvailableDonations from "./components/foodDonationForm/AvailableDonation";
+
+
 
 function App() {
-  // const [events, setEvents] = useState([]);
-  // const [showEventForm, setShowEventForm] = useState(false);
-
-  // useEffect(() => {
-  //   fetchEvents();
-  // }, []);
-
-  // const fetchEvents = async () => {
-  //   try {
-  //     const response = await axios.get("http://localhost:8000/api/event/list");
-  //     setEvents(response.data);
-  //   } catch (error) {
-  //     console.error("Error fetching events:", error);
-  //   }
-  // };
-
-  // const addEvent = (event) => {
-  //   setEvents([...events, event]);
-  // };
-
-  // const toggleEventForm = () => {
-  //   setShowEventForm(!showEventForm);
-  // };
 
   return (
     <div className="h-screen w-screen overflow-x-hidden flex flex-col justify-start items-center">
@@ -57,11 +38,13 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="/reset-password/:token" element={<ForgetPasswordForm />} />
-          <Route path="/donate-food" element={<FoodDonationForm />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/products" element={<ProductList />} />
           <Route path="/add-product" element={<AddProductForm />} />
+          {/* <Route path="/donate" element={<FoodItem />} /> */}
+          <Route path="/donate" element={<FoodDonationForm />} />
+          <Route path="/available-donations" element={<AvailableDonations />} />
         </Routes>
       </Router>
       {/* <div className="w-full flex flex-wrap justify-center">
