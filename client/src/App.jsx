@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import VolunteerRegistration from "./components/volunteer/VolunteerRegistration";
+
 import { ToastContainer } from "react-toastify";
 
 import Navbar from "./components/navbar/Navbar";
@@ -21,7 +23,9 @@ import FoodItem from "./components/foodDonationForm/FoodItem";
 import AvailableDonations from "./components/foodDonationForm/AvailableDonation";
 import BlogDetail from "./components/Blogs/BlogDetail";
 
+
 function App() {
+
   return (
     <div className="h-screen w-screen overflow-x-hidden flex flex-col justify-start items-center">
       <Router>
@@ -35,10 +39,7 @@ function App() {
           <Route path="/event/:eventId" element={<EventDetails />} />
           <Route path="/news" element={<News />} />
           <Route path="/forget-password" element={<ForgetPassword />} />
-          <Route
-            path="/reset-password/:token"
-            element={<ForgetPasswordForm />}
-          />
+          <Route path="/reset-password/:token" element={<ForgetPasswordForm />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blogs/:id" element={<BlogDetail />} />{" "}
           {/* Route for blog detail */}
@@ -46,6 +47,7 @@ function App() {
           <Route path="/products" element={<ProductList />} />
           <Route path="/add-product" element={<AddProductForm />} />
           {/* <Route path="/donate" element={<FoodItem />} /> */}
+          <Route path="/volunteer-registration" element={<VolunteerRegistration />} />
           <Route path="/donate" element={<FoodDonationForm />} />
           <Route path="/available-donations" element={<AvailableDonations />} />
         </Routes>
@@ -56,8 +58,8 @@ function App() {
         ))}
       </div> */}
 
-      <ToastContainer />
-    </div>
-  );
+            <ToastContainer />
+        </div>
+    );
 }
 export default App;

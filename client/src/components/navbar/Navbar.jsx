@@ -8,24 +8,24 @@ function Navbar() {
   const [openDonationsDropdown, setOpenDonationsDropdown] = useState(false);
   const navigate = useNavigate();
 
-  return (
-    <nav className="bg-white shadow-md w-full">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <Link to="/" className="text-xl font-bold text-indigo-600">
-              FeedForward
-            </Link>
-          </div>
-          <div className="flex items-center space-x-4">
-            {user && user.isAdmin === true && (
-              <>
-                <Link
-                  to="/products"
-                  className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Food Items
-                </Link>
+    return (
+        <nav className="bg-white shadow-md w-full">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between h-16">
+                    <div className="flex items-center">
+                        <Link to="/" className="text-xl font-bold text-indigo-600">
+                            FeedForward
+                        </Link>
+                    </div>
+                    <div className="flex items-center space-x-4">
+                        {user && user.isAdmin === true && (
+                            <>
+                                <Link
+                                    to="/products"
+                                    className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
+                                >
+                                    Food Items
+                                </Link>
 
                 <Link
                   to="/add-product"
@@ -42,7 +42,6 @@ function Navbar() {
               >
                 Donations
               </div>
-
               {openDonationsDropdown && (
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 border border-gray-200">
                   <Link
@@ -50,16 +49,16 @@ function Navbar() {
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     onClick={() => setOpenDonationsDropdown(false)}
                   >
-                    Donate
-                  </Link>
-                  <Link
-                    to="/available-donations"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    onClick={() => setOpenDonationsDropdown(false)}
-                  >
-                    Available Donations
-                  </Link>
-                </div>
+              Donate
+            </Link>
+            <Link
+              to="/available-donations"
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              onClick={() => setOpenDonationsDropdown(false)}
+            >
+              Available Donations
+            </Link>
+            </div>
               )}
             </div>
 
@@ -69,27 +68,33 @@ function Navbar() {
             >
               Post Event
             </Link>
-
             <Link
               to="/about"
               className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
             >
               What We Do
             </Link>
-
+            
             <Link
               to="/news"
               className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
             >
               News & Stories
-            </Link>
+            </Link> 
 
+            <Link
+                            to="/volunteer-registration"
+                            className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
+                        >
+                            Volunteer Registration
+                        </Link>
+            
             <Link
               to="/blogs"
               className="text-gray-800 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
             >
               Blogs
-            </Link>
+            </Link> 
             <div className="relative">
               {user ? (
                 <>
