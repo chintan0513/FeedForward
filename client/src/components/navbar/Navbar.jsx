@@ -113,6 +113,13 @@ function Navbar() {
                       >
                         Profile
                       </Link>
+                      <Link
+                        to="/donation-order"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        onClick={() => setOpenDropdown(false)}
+                      >
+                        Donated orders
+                      </Link>
                       <div
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                         onClick={() => {
