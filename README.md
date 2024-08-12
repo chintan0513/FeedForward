@@ -1,6 +1,6 @@
-# FeedForward by BiteSized
+# BiteSized
 
-FeedForward is a platform aimed at addressing the dual issues of food waste and hunger by efficiently connecting food donors with recipients in need. This README provides an overview of the project, its features, installation instructions, and contribution guidelines.
+BiteSized is a platform aimed at addressing the dual issues of food waste and hunger by efficiently connecting food donors with recipients in need. This README provides an overview of the project, its features, installation instructions, and contribution guidelines.
 
 ## Table of Contents
 
@@ -21,9 +21,9 @@ FeedForward is a platform aimed at addressing the dual issues of food waste and 
 
 ## Installation
 
-To install FeedForward locally, follow these steps:
+To install BiteSized locally, follow these steps:
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/chintan0513/FeedForward.git
+git clone https://github.com/yourusername/BiteSized.git
