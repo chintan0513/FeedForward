@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import VolunteerRegistration from "./components/volunteer/VolunteerRegistration";
-
 import { ToastContainer } from "react-toastify";
+
+import VolunteerRegistration from "./components/volunteer/VolunteerRegistration";
 
 import Navbar from "./components/navbar/Navbar";
 import Home from "./components/home/Home";
